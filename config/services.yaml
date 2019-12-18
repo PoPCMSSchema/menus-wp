@@ -1,0 +1,4 @@
+services:
+    menu_type_api:
+        class: \PoP\MenusWP\TypeAPIs\MenuTypeAPI
+        public: true
