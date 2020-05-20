@@ -19,6 +19,7 @@ class Component extends AbstractComponent
     {
         return [
             \PoP\Menus\Component::class,
+            \PoP\EngineWP\Component::class,
         ];
     }
 
