@@ -20,12 +20,13 @@ Via Composer
 composer require getpop/menus-wp
 ```
 
-<!--
 ## Usage
 
+Initialize the component:
+
 ``` php
+\PoP\MenusWP\Component::initialize();
 ```
--->
 
 ## Standards
 
