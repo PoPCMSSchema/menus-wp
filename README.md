@@ -25,7 +25,9 @@ composer require getpop/menus-wp
 Initialize the component:
 
 ``` php
-\PoP\MenusWP\Component::initialize();
+\PoP\Root\ComponentLoader::initializeComponents([
+    \PoP\MenusWP\Component::class,
+]);
 ```
 
 ## Standards
