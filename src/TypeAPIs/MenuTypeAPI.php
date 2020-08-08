@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PoP\MenusWP\TypeAPIs;
+namespace PoPSchema\MenusWP\TypeAPIs;
 
 use WP_Menu;
-use PoP\Menus\TypeAPIs\MenuTypeAPIInterface;
+use PoPSchema\Menus\TypeAPIs\MenuTypeAPIInterface;
 /**
  * Methods to interact with the Type, to be implemented by the underlying CMS
  */

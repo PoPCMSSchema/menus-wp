@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PoP\MenusWP;
+namespace PoPSchema\MenusWP;
 
 use PoP\Root\Component\AbstractComponent;
 use PoP\Root\Component\YAMLServicesTrait;
@@ -18,7 +18,7 @@ class Component extends AbstractComponent
     public static function getDependedComponentClasses(): array
     {
         return [
-            \PoP\Menus\Component::class,
+            \PoPSchema\Menus\Component::class,
             \PoP\EngineWP\Component::class,
         ];
     }

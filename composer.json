@@ -1,5 +1,5 @@
 {
-    "name": "getpop/menus-wp",
+    "name": "pop-schema/menus-wp",
     "type": "library",
     "description": "Implementation for WordPress of contracts from package \"Menus\"",
     "keywords": [
@@ -19,7 +19,7 @@
     "prefer-stable": true,
     "require": {
         "php": "~7.2",
-        "getpop/menus": "dev-master",
+        "pop-schema/menus": "dev-master",
         "getpop/engine-wp": "dev-master"
     },
     "require-dev": {
@@ -29,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "PoP\\MenusWP\\": "src"
+            "PoPSchema\\MenusWP\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PoP\\MenusWP\\": "tests"
+            "PoPSchema\\MenusWP\\": "tests"
         }
     },
     "scripts": {
