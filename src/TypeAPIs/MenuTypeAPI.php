@@ -73,8 +73,11 @@ class MenuTypeAPI implements MenuTypeAPIInterface
 
     protected function getMenuObject(string $menuName): ?WP_Term
     {
-        $locations = get_nav_menu_locations();
-        $menuID = $locations[$menuName];
+        $locations = \get_nav_menu_locations();
+        $menuID = $locations[$menuName] ?? null;
+        if ($menuID === null) {
+            return null;
+        }
         return $this->getMenu($menuID);
     }
 
@@ -141,12 +144,12 @@ class MenuTypeAPI implements MenuTypeAPIInterface
             unset($query['exclude-ids']);
         }
         if (isset($query['order'])) {
-            // Same param name, so do nothing
+            $query['order'] = \esc_sql($query['order']);
         }
         if (isset($query['orderby'])) {
-            // Same param name, so do nothing
             // This param can either be a string or an array. Eg:
             // $query['orderby'] => array('date' => 'DESC', 'title' => 'ASC');
+            $query['orderby'] = \esc_sql($query['orderby']);
         }
         if (isset($query['offset'])) {
             // Same param name, so do nothing
