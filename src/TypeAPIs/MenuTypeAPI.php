@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace PoPSchema\MenusWP\TypeAPIs;
 
-use PoP\BasicService\BasicServiceTrait;
+use PoP\Root\App;
+use PoP\Root\Services\BasicServiceTrait;
 use PoPSchema\Menus\ObjectModels\MenuItem;
 use PoPSchema\Menus\TypeAPIs\MenuTypeAPIInterface;
 use PoPSchema\SchemaCommons\Constants\QueryOptions;
@@ -173,9 +174,9 @@ class MenuTypeAPI implements MenuTypeAPIInterface
             // Same param name, so do nothing
         }
 
-        return $this->getHooksAPI()->applyFilters(
+        return App::applyFilters(
             TaxonomyTypeAPI::HOOK_QUERY,
-            $this->getHooksAPI()->applyFilters(
+            App::applyFilters(
                 self::HOOK_QUERY,
                 $query,
                 $options
