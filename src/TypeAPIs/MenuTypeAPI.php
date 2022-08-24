@@ -35,6 +35,7 @@ class MenuTypeAPI implements MenuTypeAPIInterface
      */
     public function getMenuItems(string|int|object $menuObjectOrID): array
     {
+        /** @var string|int|WP_Term $menuObjectOrID */
         $menuItems = wp_get_nav_menu_items($menuObjectOrID);
         if ($menuItems === false) {
             return [];
@@ -81,12 +82,14 @@ class MenuTypeAPI implements MenuTypeAPIInterface
         if ($menuID === null) {
             return null;
         }
+        /** @var WP_Term|null */
         return $this->getMenu($menuID);
     }
 
     /**
-     * @param array<string, mixed> $options
+     * @param array<string,mixed> $options
      * @return array<string|int|object>
+     * @param array<string,mixed> $query
      */
     public function getMenus(array $query, array $options = []): array
     {
@@ -94,8 +97,8 @@ class MenuTypeAPI implements MenuTypeAPIInterface
         return \wp_get_nav_menus($query);
     }
     /**
-     * @param array<string, mixed> $query
-     * @param array<string, mixed> $options
+     * @param array<string,mixed> $query
+     * @param array<string,mixed> $options
      */
     public function getMenuCount(array $query, array $options = []): int
     {
@@ -119,6 +122,11 @@ class MenuTypeAPI implements MenuTypeAPIInterface
         return (int)$count;
     }
 
+    /**
+     * @return array<string,mixed>
+     * @param array<string,mixed> $query
+     * @param array<string,mixed> $options
+     */
     public function convertMenusQuery(array $query, array $options = []): array
     {
         if ($return_type = $options[QueryOptions::RETURN_TYPE] ?? null) {
